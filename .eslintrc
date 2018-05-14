@@ -1,0 +1,54 @@
+{
+  "extends": [
+    "airbnb"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "flowtype"
+  ],
+  "rules": {
+    "consistent-return": "off",
+    "no-plusplus": "off",
+    "brace-style": ["error", "stroustrup"],
+    "no-use-before-define": "off",
+    "jsx-a11y/href-no-hash": "off",
+    "no-restricted-syntax": "off",
+    "prefer-promise-reject-errors": "off",
+    "import/newline-after-import": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "aspects": [
+          "invalidHref"
+        ]
+      }
+    ],
+    "no-await-in-loop": "off",
+    "default-case": "off",
+    "guard-for-in": "off",
+    "no-shadow": "off",
+    "arrow-parens": [
+      "error",
+      "as-needed",
+      {
+        "requireForBlockBody": true
+      }
+    ],
+    "no-underscore-dangle": "off",
+    "sort-vars": "error",
+    "max-len": ["error", 120],
+    "no-case-declarations": "off",
+    "no-param-reassign": "off",
+    "no-trailing-spaces": "off",
+    "one-var": [
+      "error",
+      {
+        "var": "never",
+        "let": "never",
+        "const": "never"
+      }
+    ],
+    "object-curly-newline": "off"
+  }
+}
+
