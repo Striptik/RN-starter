@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import {addNavigationHelpers} from 'react-navigation';
 import { addListener } from '../redux/reducers/navigation';
 import AppNavigator from './AppNavigator';
 import { View, Text, Button, TextInput, TouchableOpacity, Alert, Image, BackHandler, Platform } from 'react-native';
@@ -29,11 +28,11 @@ class Navigation extends React.Component {
 
   render() {
     return (
-      <AppNavigator navigation={addNavigationHelpers({
+      <AppNavigator navigation={{
         dispatch: this.props.dispatch,
         state: this.props.nav,
         addListener,
-      })} />
+      }} />
     );
   }
 }
