@@ -1,20 +1,21 @@
 import React from 'react';
-import createStore from './src/redux/store';
-const {store, persistor } =  createStore();
 import { Provider } from 'react-redux';
 import { StatusBar } from 'react-native';
-import RootContainer from './src/features';
-import { AppWithNavigationState } from './src/navigation';
 import { PersistGate } from 'redux-persist/integration/react';
+import configureStore from './src/redux/configureStore';
+const { store, persistor } = configureStore();
+
+import RootContainer from './src/features';
+import config from './config';
+
 
 // import { View, Text } from 'react-native';
 
 
-export default class App extends React.Component {
+export default () => {
+  StatusBar.setHidden(true);
 
-  render() {
-    StatusBar.setHidden(true);
-
+  if (config.usePersistance) {
     return (
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
@@ -24,4 +25,10 @@ export default class App extends React.Component {
       </Provider>
     );
   }
+  return (
+    <Provider store={store}>
+      {/* <AppWithNavigationState /> */}
+      <RootContainer />
+    </Provider>
+  );
 };

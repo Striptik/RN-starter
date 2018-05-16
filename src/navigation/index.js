@@ -1,45 +1,46 @@
-import React, { PropTypes } from "react";
-import { connect } from "react-redux";
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
+import {addNavigationHelpers} from 'react-navigation';
 import { addListener } from '../redux/reducers/navigation';
-import AppNavigator from "./AppNavigator";
+import AppNavigator from './AppNavigator';
 import { View, Text, Button, TextInput, TouchableOpacity, Alert, Image, BackHandler, Platform } from 'react-native';
 
 class Navigation extends React.Component {
-  // Add to handle navigation Back Press
-  componentWillMount () {
-    if (Platform.OS === 'ios') return
-    BackHandler.addEventListener('hardwareBackPress', () => {
-      const { dispatch, nav } = this.props
-      // change to whatever is your first screen, otherwise unpredictable results may occur
-      if (nav.routes.length === 1 && (nav.routes[0].routeName === 'LoginFlow')) {
-        return false
-      }
-      // if (shouldCloseApp(nav)) return false
-      dispatch({ type: 'Navigation/BACK' })
-      return true
-    })
-  }
+  // // Add to handle navigation Back Press
+  // componentWillMount() {
+  //   if (Platform.OS === 'ios') return;
+  //   BackHandler.addEventListener('hardwareBackPress', () => {
+  //     const { dispatch, nav } = this.props;
+  //     // change to whatever is your first screen, otherwise unpredictable results may occur
+  //     if (nav.routes.length === 1 && (nav.routes[0].routeName === 'LoginFlow')) {
+  //       return false;
+  //     }
+  //     // if (shouldCloseApp(nav)) return false
+  //     dispatch({ type: 'Navigation/BACK' })
+  //     return true;
+  //   })
+  // }
 
-  // Add to handle navigation Back Press
-  componentWillUnmount () {
-    if (Platform.OS === 'ios') return
-    BackHandler.removeEventListener('hardwareBackPress')
-  }
+  // // Add to handle navigation Back Press
+  // componentWillUnmount() {
+  //   if (Platform.OS === 'ios') return;
+  //   BackHandler.removeEventListener('hardwareBackPress');
+  // }
 
   render() {
     return (
-      <AppNavigator navigation={{
+      <AppNavigator navigation={addNavigationHelpers({
         dispatch: this.props.dispatch,
         state: this.props.nav,
         addListener,
-      }} />
+      })} />
     );
   }
 }
 
 function mapStateToProps(state) {
   return {
-    nav: state.nav
+    nav: state.nav,
   };
 }
 
@@ -49,4 +50,4 @@ function mapDispatchToProps(dispatch) {
   };
 }
 
-export const AppWithNavigationState = connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

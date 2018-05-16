@@ -1,4 +1,4 @@
 export default {
   disableYellowWarning: false,
-  usePersistance: true,
+  usePersistance: false,
 }

@@ -1,12 +1,16 @@
 {
   "extends": [
-    "airbnb"
+    "airbnb-base"
   ],
   "parser": "babel-eslint",
   "plugins": [
-    "flowtype"
+    "react-native"
   ],
+  "env": {
+    "react-native/react-native": true
+  },
   "rules": {
+    "react-native/no-unused-styles": 2,
     "consistent-return": "off",
     "no-plusplus": "off",
     "brace-style": ["error", "stroustrup"],
