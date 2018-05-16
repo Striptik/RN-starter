@@ -3,10 +3,9 @@ import { Provider } from 'react-redux';
 import { StatusBar } from 'react-native';
 import { PersistGate } from 'redux-persist/integration/react';
 import configureStore from './src/redux/configureStore';
-const { store, persistor } = configureStore();
-
 import RootContainer from './src/features';
 import config from './config';
+const { store, persistor } = configureStore();
 
 
 // import { View, Text } from 'react-native';

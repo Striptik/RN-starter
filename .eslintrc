@@ -2,14 +2,23 @@
   "extends": [
     "airbnb-base"
   ],
+  "ecmaFeatures": {
+    "jsx": true,
+    "modules": true
+  },
   "parser": "babel-eslint",
   "plugins": [
-    "react-native"
+    "react",
+    "react-native",
+    "jsx-a11y"
   ],
   "env": {
     "react-native/react-native": true
   },
   "rules": {
+    "react/jsx-uses-react": 2,
+    "react/jsx-uses-vars": 2,
+    "react/react-in-jsx-scope": 2,
     "react-native/no-unused-styles": 2,
     "consistent-return": "off",
     "no-plusplus": "off",

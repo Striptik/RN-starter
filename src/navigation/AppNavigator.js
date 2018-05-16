@@ -1,10 +1,9 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
 import {
   // StackNavigator,
   createStackNavigator,
-  DrawerNavigator,
-  TabNavigator,
+  createDrawerNavigator,
+  createTabNavigator,
 } from 'react-navigation';
 
 import Login from '../features/login';

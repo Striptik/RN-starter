@@ -1,12 +1,13 @@
-import AppNavigator from '../../navigation/AppNavigator';
 import { NavigationActions } from 'react-navigation';
 import {
   createReduxBoundAddListener,
   createReactNavigationReduxMiddleware,
 } from 'react-navigation-redux-helpers';
+import AppNavigator from '../../navigation/AppNavigator';
+
 
 const initialState = AppNavigator.router.getStateForAction(
-  NavigationActions.init()
+  NavigationActions.init(),
 );
 
 export default function navigation(state = initialState, action) {

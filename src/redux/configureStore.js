@@ -1,9 +1,7 @@
-import { createStore, compose, combineReducers } from 'redux';
+import { createStore, compose } from 'redux';
 import { persistReducer, persistStore } from 'redux-persist';
 import autoMergeLevel2 from 'redux-persist/lib/stateReconciler/autoMergeLevel2';
 import { AsyncStorage } from 'react-native';
-// import { composeWithDevTools } from 'remote-redux-devtools';
-
 import reducers from './reducers';
 import enhancer from './middlewares';
 import config from '../../config';
